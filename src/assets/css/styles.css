@@ -1,0 +1,340 @@
+body,
+html {
+  margin: 0;
+  height: 100%;
+  font-family: "Gilda Display, serif";
+}
+
+p {
+  color: #6b7b8a;
+}
+
+html {
+  font-size: 1rem;
+  /* font-size: 1rem = 16px */
+}
+
+.generalBack {
+  background-color: #000;
+}
+
+.headFirst {
+  padding: 30px;
+  background-color: #000 !important;
+  height: 300px;
+}
+.footerFirst {
+  padding: 30px;
+  background-color: #000 !important;
+  height: 390px;
+}
+
+footer {
+  margin-top: -200px;
+}
+
+.preFooter {
+  position: relative;
+  height: 90px;
+  background-color: #000 !important;
+}
+
+.backgroundForm {
+  background: url("../images/fondo.jpg") 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  /*height: 100%;
+	min-height: 100%*/
+}
+
+.card {
+  border: 0px solid rgba(0, 0, 0, 0.125);
+  z-index: 9;
+}
+
+.topSpace {
+  top: -150px;
+}
+
+.topSpace_step3 {
+  top: 210px;
+}
+
+.card-header {
+  color: #fff;
+  background-color: #242021;
+  font-size: 26px;
+}
+
+.card-body-six {
+  background-color: #000;
+}
+
+.form-wrapper {
+  /* max-width: 30%;
+  min-width: 300px;
+  padding: 50px 30px 50px 30px;*/
+  margin: 50px auto;
+  /*  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);*/
+}
+
+.form-group {
+  position: relative;
+  & + .form-group {
+    margin-top: 30px;
+  }
+}
+
+.form-label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #999;
+  background-color: #fff;
+  z-index: 10;
+  transition: transform 150ms ease-out, font-size 150ms ease-out;
+}
+
+.form-label {
+  /* .focused .form-label { */
+  transform: translateY(-125%);
+  font-size: 0.75em;
+}
+
+.form-input {
+  position: relative;
+  padding: 12px 0px 5px 0;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 1px 0 0 #e5e5e5;
+  transition: box-shadow 150ms ease-out;
+
+  &:focus {
+    box-shadow: 0 2px 0 0 blue;
+  }
+}
+
+.form-input.filled {
+  box-shadow: 0 2px 0 0 #000;
+}
+
+/* BUTTONS CLASS*/
+
+.btn-primary {
+  background-color: #cf7c24;
+  border: 1px solid #cf7c24;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #000;
+  border: 1px solid #000;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-secondary {
+  background-color: #242021 !important;
+}
+
+.btn-secondary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #000;
+  border: 1px solid #000;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-secondary.focus,
+.btn-secondary:focus {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-update {
+  background-color: #2d83a4;
+  color: #fff;
+}
+
+.btn-update:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #000;
+  border: 1px solid #000;
+  color: #fff;
+}
+
+.btn-update:not(:disabled):not(.disabled).active,
+.btn-update:not(:disabled):not(.disabled):active,
+.show > .btn-update.dropdown-toggle {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-secondary.update,
+.btn-update:focus {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.centerLH {
+  line-height: 60px;
+}
+
+.fontMedium {
+  font-size: 16px;
+}
+
+.equalButton {
+  width: 200px !important;
+  margin: 9px;
+}
+
+span.step {
+  background: #cf7c24;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 5px;
+  text-align: center;
+  width: 1.6em;
+}
+
+.custom-select {
+  border: 0px;
+}
+
+.form-input select.quantitySelect {
+  border: 1px solid #eaeaea;
+  box-shadow: none;
+  text-align-last: center;
+}
+
+.input-group-text {
+  border-radius: 0px;
+  background-color: #826644;
+  border: 0px solid #ced4da;
+  color: #fff;
+}
+
+.sinPadding {
+  padding: 0px !important;
+}
+
+.d-grid {
+  display: grid !important;
+}
+
+.signatureCanvas {
+  border: 1px solid black;
+  width: 100%;
+  min-height: 300px;
+}
+.pad-container {
+  display: flex;
+  min-height: 300px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.savesign {
+  margin: 5px;
+}
+
+@media only screen and (max-width: 279px) {
+  .input-group > .custom-file,
+  .input-group > .custom-select,
+  .input-group > .form-control,
+  .input-group > .form-control-plaintext {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 55px;
+    margin-bottom: 0;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .quantityForm {
+    width: 184%;
+  }
+}
+
+/* Modal*/
+
+.orangeFontColor {
+  color: #cf7c24;
+}
+
+.greyFontColor {
+  color: #45515d;
+}
+
+.blackFontColor {
+  color: #45515d;
+}
+
+.servicesText {
+  font-size: 16px;
+}
+.servicesList {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+
+.backgroundZone {
+  background-color: #826644;
+}
+
+.underLine {
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.romServicesVertical {
+  width: 30px;
+  height: 30px;
+}
+
+.textServicesVertical {
+  line-height: 40px;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
