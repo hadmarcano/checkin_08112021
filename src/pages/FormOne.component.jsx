@@ -595,54 +595,54 @@ const FormOne = ({ match }) => {
     console.log(data);
 
     // Save Check, send To API...
-    // postSaveCheckIn(data)
-    //   .then((response) => {
-    //     console.log(response);
-    //     setValues({
-    //       ...values,
-    //       error: "Update OK",
-    //       typealerta: "success",
-    //       showalert: true,
-    //     });
-    //     if (hasUpgrade) {
-    //       setValues({
-    //         ...values,
-    //         error: "",
-    //         typealerta: "",
-    //         showalert: false,
-    //       });
-    //       handleShow();
-    //     } else {
-    //       setValues({
-    //         ...values,
-    //         error: "",
-    //         typealerta: "",
-    //         showalert: false,
-    //       });
-    //       history.push("/step2/");
-    //     }
-    //     return response;
-    //   })
-    //   .catch((e) => console.log(e));
+    postSaveCheckIn(data)
+      .then((response) => {
+        console.log(response);
+        setValues({
+          ...values,
+          error: "Update OK",
+          typealerta: "success",
+          showalert: true,
+        });
+        if (hasUpgrade) {
+          setValues({
+            ...values,
+            error: "",
+            typealerta: "",
+            showalert: false,
+          });
+          handleShow();
+        } else {
+          setValues({
+            ...values,
+            error: "",
+            typealerta: "",
+            showalert: false,
+          });
+          history.push("/step2/");
+        }
+        return response;
+      })
+      .catch((e) => console.log(e));
 
       // Testing without savePostCheckin
-    if (hasUpgrade) {
-      setValues({
-        ...values,
-        error: "",
-        typealerta: "",
-        showalert: false,
-      });
-      handleShow();
-    } else {
-      setValues({
-        ...values,
-        error: "",
-        typealerta: "",
-        showalert: false,
-      });
-      history.push("/step2/");
-    }
+    // if (hasUpgrade) {
+    //   setValues({
+    //     ...values,
+    //     error: "",
+    //     typealerta: "",
+    //     showalert: false,
+    //   });
+    //   handleShow();
+    // } else {
+    //   setValues({
+    //     ...values,
+    //     error: "",
+    //     typealerta: "",
+    //     showalert: false,
+    //   });
+    //   history.push("/step2/");
+    // }
   };
 
   // DECLARATION FUNCTIONS
