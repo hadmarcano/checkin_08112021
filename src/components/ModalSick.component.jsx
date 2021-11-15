@@ -74,17 +74,17 @@ const ModalSick = (props) => {
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      type={"radio"}
-                      id={`check-api-radio`}
-                      // label={<p>NO</p>}
-                      checked={no}
-                      value={false}
-                      onChange={clickAnswer2("no")}
-                    />
-                    <div>NO</div>
-                  </div>
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        type={"radio"}
+                        id={`check-api-radio`}
+                        // label={<p>NO</p>}
+                        checked={no}
+                        value={false}
+                        onChange={clickAnswer2("no")}
+                      />
+                      <div>NO</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -98,99 +98,99 @@ const ModalSick = (props) => {
                 </div>
                 <div className="col-md-4">
                   <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      type={"checkbox"}
-                      id={`check-api-radio`}
-                    //   label={<p>TOS</p>}
-                      onChange={(e) => handleSicks(e)}
-                      value={"TOS"}
-                      checked={sicks.includes("TOS")}
-                    />
-                    <div>TOS</div>
-                  </div>
-                  </div>
-                  <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      type={"checkbox"}
-                      id={`check-api-radio`}
-                    //   label={<p>DIARREA</p>}
-                      onChange={(e) => handleSicks(e)}
-                      value={"DIARREA"}
-                      checked={sicks.includes("DIARREA")}
-                    />
-                    <div>DIARREA</div>
-                  </div>
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        type={"checkbox"}
+                        id={`check-api-radio`}
+                        //   label={<p>NINGUNO</p>}
+                        value={"NINGUNO"}
+                        checked={sicks.includes("NINGUNO")}
+                        onChange={(e) => handleSicks(e)}
+                      />
+                      <div>NINGUNO</div>
+                    </div>
                   </div>
                   <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      type={"checkbox"}
-                      id={`check-api-radio`}
-                    //   label={<p>DOLOR MUSCULAR</p>}
-                      onChange={(e) => handleSicks(e)}
-                      value={"DOLOR MUSCULAR"}
-                      checked={sicks.includes("DOLOR MUSCULAR")}
-                    />
-                    <div>DOLOR MUSCULAR</div>
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        type={"checkbox"}
+                        id={`check-api-radio`}
+                        //   label={<p>DIARREA</p>}
+                        onChange={(e) => handleSicks(e)}
+                        value={"DIARREA"}
+                        checked={sicks.includes("DIARREA")}
+                      />
+                      <div>DIARREA</div>
+                    </div>
                   </div>
+                  <div className="form-group">
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        type={"checkbox"}
+                        id={`check-api-radio`}
+                        //   label={<p>DOLOR MUSCULAR</p>}
+                        onChange={(e) => handleSicks(e)}
+                        value={"DOLOR MUSCULAR"}
+                        checked={sicks.includes("DOLOR MUSCULAR")}
+                      />
+                      <div>DOLOR MUSCULAR</div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      type={"checkbox"}
-                      id={`check-api-radio`}
-                    //   label={<p>FIEBRE</p>}
-                      onChange={(e) => handleSicks(e)}
-                      value={"FIEBRE"}
-                      checked={sicks.includes("FIEBRE")}
-                    />
-                    <div>FIEBRE</div>
-                  </div>
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        type={"checkbox"}
+                        id={`check-api-radio`}
+                        //   label={<p>FIEBRE</p>}
+                        onChange={(e) => handleSicks(e)}
+                        value={"FIEBRE"}
+                        checked={sicks.includes("FIEBRE")}
+                      />
+                      <div>FIEBRE</div>
+                    </div>
                   </div>
                   <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      type={"checkbox"}
-                      id={`check-api-radio`}
-                    //   label={<p>PÉRDIDA DE OLFATO/GUSTO</p>}
-                      onChange={(e) => handleSicks(e)}
-                      value={"PÉRDIDA DE OLFATO/GUSTO"}
-                      checked={sicks.includes("PÉRDIDA DE OLFATO/GUSTO")}
-                    />
-                    <div>PÉRDIDA DE OLFATO/GUSTO</div>
-                  </div>
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        type={"checkbox"}
+                        id={`check-api-radio`}
+                        //   label={<p>PÉRDIDA DE OLFATO/GUSTO</p>}
+                        onChange={(e) => handleSicks(e)}
+                        value={"PÉRDIDA DE OLFATO/GUSTO"}
+                        checked={sicks.includes("PÉRDIDA DE OLFATO/GUSTO")}
+                      />
+                      <div>PÉRDIDA DE OLFATO/GUSTO</div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      type={"checkbox"}
-                      id={`check-api-radio`}
-                    //   label={<p>DIFICULTAD RESPIRATORIA</p>}
-                      value={"DIFICULTAD RESPIRATORIA"}
-                      checked={sicks.includes("DIFICULTAD RESPIRATORIA")}
-                      onChange={(e) => handleSicks(e)}
-                    />
-                    <div>DIFICULTAD RESPIRATORIA</div>
-                  </div>
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        type={"checkbox"}
+                        id={`check-api-radio`}
+                        //   label={<p>DIFICULTAD RESPIRATORIA</p>}
+                        value={"DIFICULTAD RESPIRATORIA"}
+                        checked={sicks.includes("DIFICULTAD RESPIRATORIA")}
+                        onChange={(e) => handleSicks(e)}
+                      />
+                      <div>DIFICULTAD RESPIRATORIA</div>
+                    </div>
                   </div>
                   <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      type={"checkbox"}
-                      id={`check-api-radio`}
-                    //   label={<p>NINGUNO</p>}
-                      value={"NINGUNO"}
-                      checked={sicks.includes("NINGUNO")}
-                      onChange={(e) => handleSicks(e)}
-                    />
-                    <div>NINGUNO</div>
-                  </div>
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        type={"checkbox"}
+                        id={`check-api-radio`}
+                        //   label={<p>TOS</p>}
+                        onChange={(e) => handleSicks(e)}
+                        value={"TOS"}
+                        checked={sicks.includes("TOS")}
+                      />
+                      <div>TOS</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -206,19 +206,19 @@ const ModalSick = (props) => {
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
-                  <div className={classes.sick__formcheck_wrap}>
-                    <Form.Check
-                      onClick={() => {
-                        handleAccept();
-                      }}
-                      value={accept}
-                      checked={accept}
-                      type={"radio"}
-                      id={`check-api-radio`}
-                    //   label={<p>ENTIENDO Y ACEPTO</p>}
-                    />
-                    <div>ENTIENDO Y ACEPTO</div>
-                  </div>
+                    <div className={classes.sick__formcheck_wrap}>
+                      <Form.Check
+                        onClick={() => {
+                          handleAccept();
+                        }}
+                        value={accept}
+                        checked={accept}
+                        type={"radio"}
+                        id={`check-api-radio`}
+                        //   label={<p>ENTIENDO Y ACEPTO</p>}
+                      />
+                      <div>ENTIENDO Y ACEPTO</div>
+                    </div>
                   </div>
                 </div>
               </div>

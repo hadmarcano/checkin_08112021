@@ -51,8 +51,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Restaurant } from "@material-ui/icons";
 
+
+
 const FormThree = () => {
   const currency_code = localStorage.getItem("c-code");
+  const roomCatType = localStorage.getItem("updateRoomCategoryLabel");
   const {
     room_selected,
     changeRoomSelected,
@@ -83,6 +86,7 @@ const FormThree = () => {
     // changeToCurrencyCode,
   } = useContext(CheckInContext);
   const [initialAmount, setInitialAmount] = useState(roomAmountFinal);
+  // const [initialAmount, setInitialAmount] = useState(196);
 
   const [ser1, setSer1] = useState(0);
   const [ser2, setSer2] = useState(0);
@@ -90,7 +94,8 @@ const FormThree = () => {
   const [ser4, setSer4] = useState(0);
 
   const [totalAmount, setTotalAmount] = useState(initialAmount);
-  const [packageData, setPackageData] = useState([]);
+  const [packageData, setPackageData] = useState([{
+    }]);
   // const [totalAmount, setTotalAmount] = useState(roomAmountFinal);
   const [servicesAmount, setServicesAmount] = useState(0);
   const [checked, setChecked] = useState([]);
@@ -100,75 +105,30 @@ const FormThree = () => {
     const reqPacks = {
       hotel: nameHotel,
       currency: currency_code,
-      // currency: currencyCode,
     };
+    // const reqPacks = {
+    //   hotel: "HTSCR",
+    //   currency: currency_code,
+    // };
+
     init(reqPacks);
   }, []);
 
   useEffect(() => {
+    console.log("este es checked", checked);
     calculatingServiceAmount(checked);
   }, [checked]);
 
-  useEffect(() => {}, [servicesAmount, totalAmount]);
+  
 
   const init = (data) => {
     getPackageData(data).then((response) => {
       const packs = response.resp;
       console.log(packs);
-      setPackageData(packs);
+      // Filtering packs by room category label
+      const filterPacks = filterPackByTypeRoom(roomCatType,currency_code,packs);
+      setPackageData(filterPacks);
     });
-  };
-
-  const totalUpgradeBalance = (data) => {
-    let balance = 0;
-    for (let i = 0; i < data.length; i++) {
-      balance = balance + parseInt(data[i]);
-    }
-    return setServicesAmount(balance);
-  };
-
-  const totalServicesBalance = (data) => {
-    let balance = 0;
-    for (let i = 0; i < data.length; i++) {
-      balance = balance + parseInt(data[i]);
-    }
-    return setTotalAmount(balance);
-  };
-  const handleChange = (name) => (event) => {
-    const value = name === "foto" ? event.target.files[0] : event.target.value;
-
-    console.log(name);
-    if (name === "ser1") {
-      setSer1(value);
-      const total = [initialAmount, value, ser2, ser3, ser4];
-      const extraServicesAmount = [value, ser2, ser3, ser4];
-      totalUpgradeBalance(extraServicesAmount);
-      return totalServicesBalance(total);
-    }
-    if (name === "ser2") {
-      setSer2(value);
-
-      const total = [initialAmount, ser1, value, ser3, ser4];
-      const extraServicesAmount = [ser1, value, ser3, ser4];
-      totalUpgradeBalance(extraServicesAmount);
-      return totalServicesBalance(total);
-    }
-    if (name === "ser3") {
-      setSer3(value);
-
-      const total = [initialAmount, ser1, ser2, value, ser4];
-      const extraServicesAmount = [ser1, ser2, value, ser4];
-      totalUpgradeBalance(extraServicesAmount);
-      return totalServicesBalance(total);
-    }
-    if (name === "ser4") {
-      setSer4(value);
-
-      const total = [initialAmount, ser1, ser2, ser3, value];
-      const extraServicesAmount = [ser1, ser2, ser3, value];
-      totalUpgradeBalance(extraServicesAmount);
-      return totalServicesBalance(total);
-    }
   };
 
   const savingPacks = () => {
@@ -177,20 +137,22 @@ const FormThree = () => {
       hotel: nameHotel,
       additionals: checked,
     };
+    console.log("add pack",data)
     return saveAdditionalPackages(data).then((response) => {
       console.log(response);
+      localStorage.removeItem("c-code");
     });
   };
 
   const handleCheck = (data) => (event) => {
     const { value } = event.target;
+    //
     console.log(value);
     const addPackage = {
       product: data.PRODUCT,
       quantity: value,
       price: data.PRICE,
     };
-    console.log("este es checked", checked);
     let found = false;
     for (let i = 0; i < checked.length; i++) {
       if (checked[i].product == data.PRODUCT) {
@@ -198,40 +160,28 @@ const FormThree = () => {
         break;
       }
     }
-    console.log("este es found", found);
+    console.log("este es found", found); // ¿existe el servicio en [check]?
 
-    if (value == 0) {
-      console.log("pack valor 0", data.PRODUCT);
-      // const updateChecked = checked.filter(
-      //   (pack) => pack.product == data.PRODUCT
-      // );
-      // return setChecked(updateChecked);
-      setChecked(
-        checked.includes(data.PRODUCT)
-          ? checked.filter((pack) => pack.product !== data.PRODUCT)
-          : [...checked]
-      );
-
-      console.log(checked.filter((pack) => pack.product !== data.PRODUCT));
-      // return calculatingServiceAmount(checked);
+    if(found){
+      // console.log("pack existe");
+      if (value === '0'){
+        // console.log(`pack cantidad ${value}`, data.PRODUCT);
+        // console.log(checked.filter((pack) => pack.product !== data.PRODUCT));
+        setChecked(
+          checked.filter((pack) => pack.product !== data.PRODUCT)
+          );
+        }else{
+          // console.log(`pack cantidad ${value}`, data.PRODUCT);
+          const updatedCheck = checked.filter((pack) => pack.product !== data.PRODUCT);
+          updatedCheck.push(addPackage);
+          setChecked(updatedCheck)
+        }
+      }else{
+        
+        // console.log("pack no existe");
+        setChecked([...checked, addPackage]);
     }
 
-    if (!found) {
-      console.log("pack encontrado");
-      // return setChecked([...checked, addPackage]);
-      setChecked([...checked, addPackage]);
-      return calculatingServiceAmount([...checked, addPackage]);
-    }
-
-    // else {
-    //   const newArray = checked.filter((pack) => pack.product == data.PRODUCT);
-    //   newArray.push(addPackage);
-    //   // newArray.push(addPackage);
-
-    //   // return setChecked(newArray);
-    //   setChecked(newArray);
-    //   return calculatingServiceAmount(newArray);
-    // }
   };
 
   const calculatingServiceAmount = (data) => {
@@ -254,6 +204,24 @@ const FormThree = () => {
       setTotalAmount(parseInt(initialAmount) + servicesTotal);
     }
   };
+
+  const filterPackByTypeRoom = (typ,currType,arr)=>{
+    let data = arr;
+    if(currType == "USD"){
+
+        if(typ !== "STWS"){
+            data = arr.filter((item)=> item.PRODUCT !== "HOTTUBUS" );
+        }
+        console.log(data);
+        return data;
+    }else{
+        if(typ !== "STWS"){
+            data = arr.filter((item)=> item.PRODUCT !=='HOTTUB' );
+        }
+        console.log(data);
+        return data;
+    }
+}
 
   let sectorName = null;
   switch (featureSelected) {

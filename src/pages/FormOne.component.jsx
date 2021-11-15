@@ -261,7 +261,6 @@ const FormOne = ({ match }) => {
         name_id: content.GUEST_NAME_ID,
       });
       changeRoomClass(content.ROOM_CLASS);
-      changeRoomCategoryLabel(content.ROOM_CATEGORY_LABEL);
       changeRommTypeMap(content.ROOM_CATEGORY_LABEL);
       changeResvNameId(reserva.resv_name_id);
       changeRateCode(content.RATE_CODE);
@@ -281,7 +280,8 @@ const FormOne = ({ match }) => {
       changeToCheckIn(content.CHECK_IN);
       changeToCheckOut(content.CHECK_OUT);
       changeToRoomAmountFinal(content.SHARE_AMOUNT);
-      //Room CategoryLabel
+      //Set the Room CategoryLabel
+      localStorage.setItem("updateRoomCategoryLabel",content.ROOM_CATEGORY_LABEL);
       changeRoomCategoryLabel(content.ROOM_CATEGORY_LABEL);
 
 
@@ -307,13 +307,9 @@ const FormOne = ({ match }) => {
           const upgCatLab = splittingRoomTypes(upgradeData.ROOM_TYPES);
           // console.log("string divi ", upgCatLab);
           
-          setUpgradeCategoryLabel(upgCatLab);
           //Actualizando el CategoryLabel
-          
+          setUpgradeCategoryLabel(upgCatLab);
           localStorage.setItem("updateRoomCategoryLabel",upgCatLab);
-          // changeRoomCategoryLabel(upgCatLab);
-          //CURRENCY_CODE: "CLP"or"USD"
-          // changeToCurrencyCode(upgradeData.CURRENCY_CODE);
           localStorage.setItem("c-code",upgradeData.CURRENCY_CODE)
           console.log("get room", upgradeData);
         }
@@ -407,7 +403,7 @@ const FormOne = ({ match }) => {
         // log to console
         // logs wL2dvYWwgbW9yZ...
         const prefB64 = "data:image/png;base64,";
-        // console.log(base64String);
+        console.log("base-64",base64String);
 
         setValues({
           ...values,
@@ -699,7 +695,7 @@ const FormOne = ({ match }) => {
           {AlertShow()}
           <div className="card-body">
             <p>
-              Por favor saque una foto a su documento de identidad o pasaporte o
+              Por favor sacar una foto o
               selecione una imagen desde su computador.
             </p>
             <label className="btn btn-secondary btn-lg active">
@@ -914,7 +910,12 @@ const FormOne = ({ match }) => {
                             <input
                               type="text"
                               className="form-control form-input numeroDocumentoInput"
-                              placeholder={n_doc_1}
+                              // placeholder={n_doc_1}
+                              value={
+                                t_doc_1 === "ID"
+                                  ? format(n_doc_1)
+                                  : n_doc_1
+                              }
                               onChange={handleChange("n_doc_1")}
                             />
                           </div>
@@ -1008,7 +1009,11 @@ const FormOne = ({ match }) => {
                             <input
                               type="text"
                               className="form-control form-input numeroDocumentoInput"
-                              placeholder={n_doc_1}
+                              value={
+                                t_doc_1 === "ID"
+                                  ? format(n_doc_1)
+                                  : n_doc_1
+                              }
                               onChange={handleChange("n_doc_1")}
                             />
                           </div>
@@ -1098,7 +1103,11 @@ const FormOne = ({ match }) => {
                             <input
                               type="text"
                               className="form-control form-input numeroDocumentoInput"
-                              placeholder={n_doc_2}
+                              value={
+                                t_doc_2 === "ID"
+                                  ? format(n_doc_2)
+                                  : n_doc_2
+                              }
                               onChange={handleChange("n_doc_2")}
                             />
                           </div>
